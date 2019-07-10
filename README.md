@@ -14,7 +14,7 @@ Check out the examples below.
 Let's say we have `User` object, and we can ask him to give us his description. 
 He may need to put some effort to compute his description. 
 We want him to do computation only when we ask his description (lazy-loading).
-Lastly, we wnt him to cache his description instead of computing every time we ask him. 
+Lastly, we want him to cache his description instead of computing every time we ask him. 
 Most likely, this is how we may implement the User object in tedious way:
 ```java
 public class User {
