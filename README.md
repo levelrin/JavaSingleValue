@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/levelrin/JavaSingleValue.svg?branch=master)](https://travis-ci.org/levelrin/JavaSingleValue)
+[![Test Coverage](https://img.shields.io/codecov/c/github/levelrin/JavaSingleValue.svg)](https://codecov.io/github/levelrin/JavaSingleValue?branch=master)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/levelrin/JavaSingleValue/blob/master/LICENSE)
+
 # JavaSingleValue
 
 Java objects that represent singe value. 
