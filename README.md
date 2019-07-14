@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/levelrin/JavaSingleValue.svg?branch=master)](https://travis-ci.org/levelrin/JavaSingleValue)
 [![Test Coverage](https://img.shields.io/codecov/c/github/levelrin/JavaSingleValue.svg)](https://codecov.io/github/levelrin/JavaSingleValue?branch=master)
+[![Maven Central](https://img.shields.io/maven-central/v/com.levelrin/javasinglevalue.svg)](https://maven-badges.herokuapp.com/maven-central/com.levelrin/javasinglevalue)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/levelrin/JavaSingleValue/blob/master/LICENSE)
 
 # JavaSingleValue
@@ -69,3 +70,28 @@ public class User {
 
 }
 ```
+
+### How to use?
+
+You just need to add the dependency like so:
+
+Gradle:
+```groovy
+dependencies {
+    implementation 'com.levelrin:javasinglevalue:1.0.0'
+}
+```
+
+Maven:
+```xml
+<dependency>
+  <groupId>com.levelrin</groupId>
+  <artifactId>javasinglevalue</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
+### How to contribute?
+
+As of now, just fork this repository and send us a pull request.
+The detailed guideline will be created soon.
