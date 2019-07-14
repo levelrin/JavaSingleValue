@@ -180,6 +180,9 @@ publishing {
         maven {
             url 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
             credentials {
+                def ossrhUser = project.hasProperty('ossrhUser') ? ossrhUser : 'fakeUser'
+                def ossrhPassword = project.hasProperty('ossrhPassword') ? ossrhPassword : 'fakePassword'
+
                 username ossrhUser
                 password ossrhPassword
             }
