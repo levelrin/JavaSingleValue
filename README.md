@@ -91,6 +91,9 @@ Maven:
 </dependency>
 ```
 
+Requirements:
+1. JDK 1.8+
+
 ### How to contribute?
 
 As of now, just fork this repository and send us a pull request.
