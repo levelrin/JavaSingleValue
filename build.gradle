@@ -4,6 +4,8 @@ plugins {
     id 'com.github.spotbugs' version '2.0.0'
     id 'pmd'
     id 'checkstyle'
+    id 'maven-publish'
+    id 'signing'
 }
 
 group 'com.levelrin'
@@ -118,5 +120,79 @@ tasks.withType(Checkstyle) {
     reports {
         xml.enabled true
         html.enabled true
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    archiveClassifier = 'sources'
+}
+
+task javadocJar(type: Jar) {
+    from javadoc
+    archiveClassifier = 'javadoc'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'javasinglevalue'
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+
+            pom {
+                name = 'JavaSingleValue'
+                description = 'Java objects that represent singe value.'
+                url = 'https://github.com/levelrin/JavaSingleValue'
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://github.com/levelrin/JavaSingleValue/blob/master/LICENSE'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'levelrin'
+                        name = 'Rin'
+                        email = 'levelrin@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git@github.com:levelrin/JavaSingleValue.git'
+                    developerConnection = 'scm:git:git@github.com:levelrin/JavaSingleValue.git'
+                    url = 'https://github.com/levelrin/JavaSingleValue'
+                }
+            }
+
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+            credentials {
+                username ossrhUser
+                password ossrhPassword
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+javadoc {
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
     }
 }
